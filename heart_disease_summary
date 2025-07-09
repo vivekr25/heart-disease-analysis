@@ -1,0 +1,14 @@
+
+## 🔍 Heart Disease Feature Summary
+
+| **Feature**       | **Insight**                                                                                  | **Visual Used**               |
+|-------------------|----------------------------------------------------------------------------------------------|-------------------------------|
+| **Age**           | Older age is positively correlated with heart disease.                                       | Scatter Plot + Regression Line |
+| **Max Heart Rate (MaxHR)** | Patients with heart disease tend to have a significantly lower max heart rate.        | Scatter Plot + Regression Line |
+| **Cholesterol**    | Average cholesterol is **higher** in patients **without** heart disease — possibly due to medication or lifestyle changes in diagnosed patients. | Line Plot by Age Group        |
+| **Fasting Blood Sugar (FastingBS)** | Heart disease patients are **3x more likely** to have elevated fasting blood sugar. | Bar Chart (Proportion)        |
+| **Resting Blood Pressure (RestingBP)** | Mildly higher on average in patients with heart disease.                              | Summary Stats Only             |
+| **Resting ECG (RestingECG)** | 'ST' and 'LVH' results are more common in patients with heart disease.                  | Stacked Bar Chart              |
+| **Oldpeak (ST Depression)** | Average Oldpeak is **3x higher** in heart disease patients. Strong positive correlation with heart disease. | Box Plot                      |
+| **ST_Slope**       | 'Flat' and 'Down' slopes are linked with heart disease, especially 'Flat'. 'Up' slope is more common in healthy individuals. | Stacked Bar Chart              |
+| **Correlation Heatmap** | Oldpeak and MaxHR show strongest correlations with heart disease (-0.40 and +0.40 respectively). | Heatmap                       |
