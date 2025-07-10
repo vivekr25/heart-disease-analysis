@@ -40,3 +40,12 @@ This modular structure makes it easy to maintain and reuse for model training or
 	•	F1-Score (Balance between precision and recall)
 	•	Confusion Matrix for visual interpretation.
   
+  🧠 Model Serialization for Deployment
+
+To make this project ready for deployment:
+	•	Trained Logistic Regression model was saved as: models/logistic_model.pkl
+	•	Trained Scaler (StandardScaler) was saved as: models/scaler.pkl
+
+These .pkl (pickle) files store the trained objects and can be used later for prediction in production environments such as web apps or APIs.
+
+This is a critical step in making the model reusable, scalable, and ready for deployment using tools like Azure AI Foundry or Flask/Django.
