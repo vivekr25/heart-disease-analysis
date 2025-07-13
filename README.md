@@ -49,3 +49,16 @@ To make this project ready for deployment:
 These .pkl (pickle) files store the trained objects and can be used later for prediction in production environments such as web apps or APIs.
 
 This is a critical step in making the model reusable, scalable, and ready for deployment using tools like Azure AI Foundry or Flask/Django.
+
+## 🧠 Inference & Deployment Prep
+
+We saved the trained Logistic Regression model and the Scaler as `.joblib` files. These are used for making predictions on new patient data.
+
+```python
+# Sample usage
+from scripts.inference import predict_heart_disease
+
+# Input format: [Age, RestingBP, Cholesterol, FastingBS, MaxHR, Oldpeak, Sex_M, ChestPainType_ATA, ...]
+sample_input = [55, 140, 230, 0, 150, 1.2, 1, 0, 1, 0, 1, 0, 1, 1, 0]
+result = predict_heart_disease(sample_input)
+print("Prediction:", result)  # 0 = No Heart Disease, 1 = Heart Disease
