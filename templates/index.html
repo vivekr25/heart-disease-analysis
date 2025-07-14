@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Predictor</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; background: #f4f4f4; }
+        h1 { color: #333; }
+        form { background: white; padding: 20px; border-radius: 5px; max-width: 600px; }
+        input[type="text"], input[type="number"] {
+            width: 100%; padding: 10px; margin: 8px 0; border-radius: 4px; border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #28a745; color: white; padding: 10px 15px; border: none;
+            border-radius: 4px; cursor: pointer;
+        }
+        .result { margin-top: 20px; font-weight: bold; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>Heart Disease Risk Prediction</h1>
+    <form action="/predict" method="post">
+        <label>Age:</label>
+        <input type="number" name="age" required>
+
+        <label>RestingBP:</label>
+        <input type="number" name="restingbp" required>
+
+        <label>Cholesterol:</label>
+        <input type="number" name="cholesterol" required>
+
+        <label>FastingBS:</label>
+        <input type="number" name="fastingbs" required>
+
+        <label>MaxHR:</label>
+        <input type="number" name="maxhr" required>
+
+        <label>Oldpeak:</label>
+        <input type="number" step="any" name="oldpeak" required>
+
+        <label>Sex_M:</label>
+        <input type="number" name="sex_m" required>
+
+        <label>ChestPainType_ATA:</label>
+        <input type="number" name="cpta" required>
+
+        <label>ChestPainType_NAP:</label>
+        <input type="number" name="cpnap" required>
+
+        <label>ChestPainType_TA:</label>
+        <input type="number" name="cpta2" required>
+
+        <label>RestingECG_Normal:</label>
+        <input type="number" name="recg" required>
+
+        <label>RestingECG_ST:</label>
+        <input type="number" name="recgst" required>
+
+        <label>ExerciseAngina_Y:</label>
+        <input type="number" name="exang" required>
+
+        <label>ST_Slope_Flat:</label>
+        <input type="number" name="slopeflat" required>
+
+        <label>ST_Slope_Up:</label>
+        <input type="number" name="slopeup" required>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+</body>
+</html>
