@@ -1,90 +1,117 @@
-# Heart Disease Analysis
+# 🫀 Heart Disease Prediction - End-to-End Data Science Project
 
-This project explores the Heart Failure Prediction dataset from Kaggle using Python and Pandas.
+This project explores the Heart Failure Prediction dataset using Python and Pandas, applies machine learning, and deploys a prediction model as a live web app.
 
-## Goals
+---
+
+## 🎯 Project Goals
+
 - Load and explore real-world health data
-- Answer questions like:
-  - What is the average age of patients?
-  - Do older patients have higher heart disease risk?
-- Practice data science workflows from data loading to GitHub deployment
+- Identify key risk factors of heart disease through EDA
+- Train a classification model to predict heart disease
+- Deploy a working web app for predictions
+- Document the entire lifecycle on GitHub
 
-## Tools Used
-- Python
-- Pandas
-- Google Colab
+---
 
-## 🧹 Data Preprocessing
+## 🛠 Tools & Technologies
 
-The `preprocess.py` script handles the entire data preparation pipeline for the heart disease dataset. It includes:
+- Python, Pandas, NumPy
+- Matplotlib, Seaborn
+- Scikit-learn (ML modeling)
+- Flask (Web App)
+- Google Colab + VSCode (Development)
+- Render.com (Deployment)
+- Git + GitHub (Version Control)
 
-- **Loading** the CSV dataset.
-- **Cleaning** by removing missing values.
-- **Encoding** categorical features using one-hot encoding (e.g. Sex, Chest Pain Type).
-- **Splitting** the dataset into training and testing sets (80/20 split).
-- **Scaling** numerical features using `StandardScaler` for better model performance.
+---
 
-This modular structure makes it easy to maintain and reuse for model training or experimentation.
+## 📊 Exploratory Data Analysis (EDA)
 
-📊 Exploratory Data Analysis (EDA)
-	•	Analyzed variables like Age, Cholesterol, Max Heart Rate, Fasting Blood Sugar, and more.
-	•	Explored trends in heart disease presence using bar charts, histograms, scatter plots with regression lines, and heatmaps.
-	•	Key findings were added as markdown summaries alongside each visualization.
+We explored variables like:
 
-🧠 Model Training & Evaluation
-	•	Used Logistic Regression to predict heart disease.
-	•	Achieved an accuracy of 85.33% on the test set.
-	•	Evaluated performance using:
-	•	Precision (How many predicted positives were correct?)
-	•	Recall (How many actual positives were detected?)
-	•	F1-Score (Balance between precision and recall)
-	•	Confusion Matrix for visual interpretation.
-  
-  🧠 Model Serialization for Deployment
+- **Age, MaxHR, Cholesterol, Oldpeak, RestingBP**
+- **FastingBS**, **ExerciseAngina**, **ChestPainType**
+- Used bar charts, histograms, box plots, scatter plots, and heatmaps
+- Key findings:
+  - **Exercise-induced angina**, **Oldpeak**, and **ST_Slope** showed strong correlation with heart disease.
+  - **MaxHR** was notably lower in patients with heart disease.
+  - Cholesterol wasn’t as strongly predictive as expected.
 
-To make this project ready for deployment:
-	•	Trained Logistic Regression model was saved as: models/logistic_model.pkl
-	•	Trained Scaler (StandardScaler) was saved as: models/scaler.pkl
+---
 
-These .pkl (pickle) files store the trained objects and can be used later for prediction in production environments such as web apps or APIs.
+## 🤖 Model Training & Evaluation
 
-This is a critical step in making the model reusable, scalable, and ready for deployment using tools like Azure AI Foundry or Flask/Django.
+- Algorithm: **Logistic Regression**
+- Accuracy: **85.33%**
+- Evaluated with:
+  - **Confusion Matrix**
+  - **Precision, Recall, F1-score**
+- Serialized the trained model and scaler for deployment
 
-## 🧠 Inference & Deployment Prep
+---
 
-We saved the trained Logistic Regression model and the Scaler as `.joblib` files. These are used for making predictions on new patient data.
+## 🚀 Deployment Summary
 
-```python
-# Sample usage
-from scripts.inference import predict_heart_disease
+- Built a Flask web app with form-based input
+- Connected the app to the serialized model for predictions
+- Deployed the app to Render.com
 
-# Input format: [Age, RestingBP, Cholesterol, FastingBS, MaxHR, Oldpeak, Sex_M, ChestPainType_ATA, ...]
-sample_input = [55, 140, 230, 0, 150, 1.2, 1, 0, 1, 0, 1, 0, 1, 1, 0]
-result = predict_heart_disease(sample_input)
-print("Prediction:", result)  # 0 = No Heart Disease, 1 = Heart Disease
+✅ **Live App**: [Heart Disease Predictor](https://heart-disease-analysis.onrender.com)  
+(Enter values to get a risk prediction instantly!)
 
-## 🚀 Web App Deployment Summary
+---
 
-This project includes a Flask web application that allows users to input patient data and receive predictions for heart disease risk in real time.
+## 💻 How to Run Locally
 
-### 🔧 Components
-- `app.py`: Flask backend that loads the trained model and handles form submissions
-- `templates/index.html`: HTML form for user input
-- `models/`: Contains the serialized model (`logistic_model.joblib`) and scaler (`scaler.joblib`)
-- `scripts/retrain_and_export.py`: Re-trains and exports the latest model and scaler
+```bash
+# 1. Clone the repo
+git clone https://github.com/vivekr25/heart-disease-analysis.git
+cd heart-disease-analysis
 
-### 📦 How to Run Locally
-1. Open terminal and navigate to the project folder
-2. Run:
-   ```bash
-   python app.py
-3.Visit http://127.0.0.1:5000 in your browser   
+# 2. (Optional) Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # macOS/Linux
+venv\Scripts\activate     # Windows
 
-Output
-	•	Green Heart = Low Risk: No Heart Disease
-	•	Broken Heart = High Risk: Heart Disease Detected
+# 3. Install dependencies
+pip install -r requirements.txt
 
-	## 🔗 Live Demo
+# 4. Run the Flask app
+python app.py
 
-You can try out the deployed Heart Disease Predictor here:  
-👉 [https://heart-disease-predictor-noin.onrender.com](https://heart-disease-predictor-noin.onrender.com)
+Visit http://127.0.0.1:5000 in your browser.
+
+heart-disease-analysis/
+├── data/
+│   └── heart.csv
+├── models/
+│   ├── logistic_model.joblib
+│   └── scaler.joblib
+├── notebooks/
+│   ├── HeartRateExploration.ipynb
+│   └── HeartRatePrediction.ipynb
+├── scripts/
+│   ├── preprocess.py
+│   ├── retrain_and_export.py
+│   └── inference.py
+├── templates/
+│   └── index.html
+├── app.py
+├── requirements.txt
+└── render.yaml
+
+📌 Highlights
+
+✅ Fully documented EDA & modeling
+✅ Deployment-ready code
+✅ Hosted web app for real-time use
+✅ Beginner-friendly, modular structure
+
+⸻
+
+📣 Author
+
+👤 Vivek Raghunathan
+💼 Data Analyst | Aspiring Data Scientist
+📫 Feel free to fork, star ⭐ and give feedback!
