@@ -62,3 +62,29 @@ from scripts.inference import predict_heart_disease
 sample_input = [55, 140, 230, 0, 150, 1.2, 1, 0, 1, 0, 1, 0, 1, 1, 0]
 result = predict_heart_disease(sample_input)
 print("Prediction:", result)  # 0 = No Heart Disease, 1 = Heart Disease
+
+## 🚀 Web App Deployment Summary
+
+This project includes a Flask web application that allows users to input patient data and receive predictions for heart disease risk in real time.
+
+### 🔧 Components
+- `app.py`: Flask backend that loads the trained model and handles form submissions
+- `templates/index.html`: HTML form for user input
+- `models/`: Contains the serialized model (`logistic_model.joblib`) and scaler (`scaler.joblib`)
+- `scripts/retrain_and_export.py`: Re-trains and exports the latest model and scaler
+
+### 📦 How to Run Locally
+1. Open terminal and navigate to the project folder
+2. Run:
+   ```bash
+   python app.py
+3.Visit http://127.0.0.1:5000 in your browser   
+
+Output
+	•	Green Heart = Low Risk: No Heart Disease
+	•	Broken Heart = High Risk: Heart Disease Detected
+
+	## 🔗 Live Demo
+
+You can try out the deployed Heart Disease Predictor here:  
+👉 [https://heart-disease-predictor-noin.onrender.com](https://heart-disease-predictor-noin.onrender.com)
