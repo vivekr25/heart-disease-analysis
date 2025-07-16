@@ -57,7 +57,7 @@ We explored variables like:
 - Connected the app to the serialized model for predictions
 - Deployed the app to Render.com
 
-✅ **Live App**: [Heart Disease Predictor](https://heart-disease-analysis.onrender.com)  
+✅ **Live App**: [Heart Disease Predictor](https://heart-disease-predictor-noin.onrender.com)  
 (Enter values to get a risk prediction instantly!)
 
 ---
