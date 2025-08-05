@@ -14,6 +14,10 @@
             border-radius: 4px; cursor: pointer;
         }
         .result { margin-top: 20px; font-weight: bold; font-size: 18px; }
+        label small {
+            font-size: 0.85em;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -40,28 +44,28 @@
         <label>Sex_M:</label>
         <input type="number" name="sex_m" required>
 
-        <label>ChestPainType_ATA:</label>
+        <label>ChestPainType_ATA: <small>(Atypical Angina)</small></label>
         <input type="number" name="cpta" required>
 
-        <label>ChestPainType_NAP:</label>
+        <label>ChestPainType_NAP: <small>(Non-Anginal Pain)</small></label>
         <input type="number" name="cpnap" required>
 
-        <label>ChestPainType_TA:</label>
+        <label>ChestPainType_TA: <small>(Typical Angina)</small></label>
         <input type="number" name="cpta2" required>
 
-        <label>RestingECG_Normal:</label>
+        <label>RestingECG_Normal: <small>(Normal ECG at rest)</small></label>
         <input type="number" name="recg" required>
 
-        <label>RestingECG_ST:</label>
+        <label>RestingECG_ST: <small>(ST-T wave abnormality)</small></label>
         <input type="number" name="recgst" required>
 
-        <label>ExerciseAngina_Y:</label>
+        <label>ExerciseAngina_Y: <small>(Exercise-induced Angina: Yes = 1, No = 0)</small></label>
         <input type="number" name="exang" required>
 
-        <label>ST_Slope_Flat:</label>
+        <label>ST_Slope_Flat: <small>(Flat ST segment)</small></label>
         <input type="number" name="slopeflat" required>
 
-        <label>ST_Slope_Up:</label>
+        <label>ST_Slope_Up: <small>(Upsloping ST segment)</small></label>
         <input type="number" name="slopeup" required>
 
         <input type="submit" value="Predict">
