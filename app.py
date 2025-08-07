@@ -23,7 +23,9 @@ def predict():
             features_scaled = scaler.transform([features])
             prediction = model.predict(features_scaled)[0]
             result = '💔 High Risk: Heart Disease Detected' if prediction == 1 else '💚 Low Risk: No Heart Disease'
-            return render_template('index.html', prediction_text=result)
+            
+            # Go to result page and show SHAP plot + prediction
+            return render_template('result.html', prediction_text=result)
         except Exception as e:
             return render_template('index.html', prediction_text=f"Error: {str(e)}")
     else:
@@ -32,7 +34,7 @@ def predict():
 if __name__ == '__main__':
     app.run(debug=True)
 
- from flask import send_file
+from flask import send_file
 
 @app.route('/explain')
 def explain():
