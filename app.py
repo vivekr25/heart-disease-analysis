@@ -31,3 +31,9 @@ def predict():
         
 if __name__ == '__main__':
     app.run(debug=True)
+
+ from flask import send_file
+
+@app.route('/explain')
+def explain():
+    return send_file("static/shap_summary.png", mimetype='image/png')   
