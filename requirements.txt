@@ -1,6 +1,7 @@
-Flask==2.2.5
-Werkzeug==2.2.3
-gunicorn==20.1.0
-numpy
-scikit-learn
+flask
 joblib
+numpy
+pandas
+scikit-learn
+matplotlib
+shap
