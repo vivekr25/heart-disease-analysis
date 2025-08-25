@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prediction Result</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f7f7f7; padding:30px; }
+    .card { background:#fff; max-width:900px; margin:auto; padding:20px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.08); }
+    .result { font-size:22px; font-weight:700; margin-bottom:16px; }
+    img { max-width:100%; border-radius:8px; border:1px solid #e3e3e3; }
+    a { display:inline-block; margin-top:16px; color:#3498db; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="result">{{ prediction_text }}</div>
+    <h3>What influenced this prediction?</h3>
+    <img src="{{ shap_img }}" alt="SHAP Explanation for this input">
+    <a href="{{ url_for('home') }}">⟵ Go Back</a>
+  </div>
+</body>
+</html>
