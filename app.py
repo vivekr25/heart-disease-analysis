@@ -64,4 +64,5 @@ def predict():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Bind to all interfaces and Render's assigned port
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)), debug=False)
